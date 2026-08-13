@@ -182,3 +182,9 @@ project/target
 .worksheet
 
 .vscode/settings.json
+
+# Entorno virtual Python
+.venv/
+
+# Datos locales
+data/
