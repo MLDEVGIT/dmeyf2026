@@ -8,7 +8,11 @@ import duckdb
 # ============================================================
 
 ROOT = Path(__file__).resolve().parents[1]
-DATA_DIR = ROOT / "data"
+
+# En EQUIPO333 los datasets pesados se almacenan en el HDD.
+# En otros equipos (por ejemplo, la laptop) se usa data/ dentro del repo.
+DATA_DIR_EQUIPO333 = Path("/data/dmeyf/datasets")
+DATA_DIR = DATA_DIR_EQUIPO333 if DATA_DIR_EQUIPO333.exists() else ROOT / "data"
 
 CSV_ENTRADA = DATA_DIR / "competencia_01_crudo.csv"
 CSV_SALIDA = DATA_DIR / "competencia_01.csv"
