@@ -274,7 +274,7 @@ def pdf_tendencias(tend: pd.DataFrame, atributos: list[str], atributos_def: pd.D
             if len(define):
                 quien = "; ".join(f"cluster_{r[CLUSTER_COL]} (lift {r['lift']:.2f}, rank {r['rank']})" for _, r in define.iterrows())
                 rol = f"Define a {quien}."
-            elif attr in lift_all.columns:
+            elif attr in lift_all.columns and lift_all[attr].notna().any():
                 c_max = lift_all[attr].idxmax()
                 rol = f"No es definitorio de ningún cluster (mayor lift: cluster_{c_max}, {lift_all.loc[c_max, attr]:.2f})."
             else:
